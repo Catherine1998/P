@@ -12,10 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-          <%@include file="Menu.jsp" %><br>
-           <center>
+        <%@include file="Menu.jsp" %><br>
+    <center>
         <h1>Servicio</h1>
- 
+
         <br>
         <br>
         Descripción:  <textarea rows="1" cols="50" placeholder="Ingrese los datos: ">
@@ -24,18 +24,18 @@
         <br>Precio: <input type="text"  name="">
         <br>
         <br>Habitacion:
-     
+
         <select>
-  <option value="">1</option>
-  <option value="">2</option>
-  <option value="">3</option>
-  <option value="">4</option>
-</select>
+            <option value="">1</option>
+            <option value="">2</option>
+            <option value="">3</option>
+            <option value="">4</option>
+        </select>
         <br>
-        
+
         <br><input type="submit" value="Guardar" ><input type="submit" value="Cancelar">
-         
-         
-        
-    </body>
-</html>
+
+
+
+        </body>
+        </html>

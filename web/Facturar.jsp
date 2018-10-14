@@ -12,8 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-          <%@include file="Menu.jsp" %><br>
-          
-      
+        <%@include file="Menu.jsp" %><br>
+
+
     </body>
 </html>

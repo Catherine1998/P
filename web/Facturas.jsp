@@ -12,22 +12,22 @@
         <title>JSP Page</title>
     </head>
     <body>  <%@include file="Menu.jsp" %><br>
-      <table   style=" width:100%; border: 1px solid black;" >
-  <tr>
-      <td ><strong>Id </strong></td>
-          <td><strong>Nit</strong></td>
-      <td><strong>Nombre del Cliente</strong></td>
-      <td><strong>Fecha</strong></td>
-      <td><strong>Descrición</strong></td> 
-      <td><strong>Total </strong></td>
-  
-    
-    </tr>
-     <tr>
-      <td>1</td><td>2</td><td>3</td> <td>4 </td><td>5</td> <td>6</td>
-    
-    </tr>
+        <table   style=" width:100%; border: 1px solid black;" >
+            <tr>
+                <td ><strong>Id </strong></td>
+                <td><strong>Nit</strong></td>
+                <td><strong>Nombre del Cliente</strong></td>
+                <td><strong>Fecha</strong></td>
+                <td><strong>Descrición</strong></td> 
+                <td><strong>Total </strong></td>
 
-</table>
+
+            </tr>
+            <tr>
+                <td>1</td><td>2</td><td>3</td> <td>4 </td><td>5</td> <td>6</td>
+
+            </tr>
+
+        </table>
     </body>
 </html>

@@ -14,9 +14,10 @@
     <body>
         <%@include file="Menu.jsp" %><br>
         <form action="" method="post">
-            
-    <center>
-        <h1>Bienvenidos</h1></center>
+
+            <center>
+                <h1>Bienvenidos</h1>
+            </center>
         </form>
-        </body>
+    </body>
 </html>

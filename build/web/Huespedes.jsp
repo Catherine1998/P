@@ -12,20 +12,20 @@
         <title>Huespedes</title>
     </head>
     <body>  <%@include file="Menu.jsp" %><br>
-        <center><h1>Huespedes</h1></center>
-            <table   style=" width:100%; border: 1px solid black;" >
-  <tr>
-      <td ><strong>Nombre </strong></td>
-      <td><strong>Apellido</strong></td>
-      <td><strong>Direccion</strong></td> 
-    </tr>
-     <tr>
-      <td>1</td><td>2</td><td>3</td> 
-    
-     </tr></table>
-    
-        <br>      
-         <br>
-         <H4 align="right"><a href="NHuesped.jsp">Ingresar nuevo Huesped</a> </H4>
-    </body>
+    <center><h1>Huespedes</h1></center>
+    <table   style=" width:100%; border: 1px solid black;" >
+        <tr>
+            <td ><strong>Nombre </strong></td>
+            <td><strong>Apellido</strong></td>
+            <td><strong>Direccion</strong></td> 
+        </tr>
+        <tr>
+            <td>Alexander</td><td>Hamilton</td><td>NY</td> 
+
+        </tr></table>
+
+    <br>      
+    <br>
+    <H4 align="right"><a href="NHuesped.jsp">Ingresar nuevo Huesped</a> </H4>
+</body>
 </html>
