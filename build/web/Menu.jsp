@@ -20,11 +20,17 @@
                 <td><a href="Reservaciones.jsp"> Reservaciones </a></td>
                 <td><a href="Facturar.jsp"> Facturar </a></td>
                 <td><a href="Facturas.jsp"> Facturas </a></td>
-                <td><a href="Servicios.jsp"> Servicios </a></td>
+                <td><a href="Servicios.jsp"> Servicio </a></td>
                 <td><a href="Huespedes.jsp"> Huespedes </a></td>
-                
-                <!-- <td><a href="Habitaciones.jsp"> Habitaciones </a></td> -->
-                <td><a href="Habitacion"> Habitaciones </a></td>
+
+                <td>
+                    <form action="Servicio">
+                        <input type="submit" value="Servicio" method="get" name="submit"/>
+                    </form>
+                    <!--<a href="Habitaciones.jsp"> Habitaciones </a>-->
+
+                </td> 
+                <!--<td><a href="Habitacion"> Habitaciones </a></td>-->
 
             </tr>
 

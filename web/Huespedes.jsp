@@ -11,9 +11,11 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Huespedes</title>
     </head>
-    <body>  <%@include file="Menu.jsp" %><br>
+    <body>  
+        <%@include file="Menu.jsp" %>
+        <br>
     <center><h1>Huespedes</h1></center>
-    <table   style=" width:100%; border: 1px solid black;" >
+    <table style=" width:100%; border: 1px solid black;" >
         <tr>
             <td ><strong>Nombre </strong></td>
             <td><strong>Apellido</strong></td>
