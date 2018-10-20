@@ -16,7 +16,9 @@ import java.sql.SQLException;
 public class conexionDB {
 
     private Connection cn = null;
-    private String urlSqlServer = "jdbc:sqlserver://localhost:61964;databaseName=HOTEL;integratedSecurity=false;user=sa;password=Sql4321";
+    //instancia cath
+    private String urlSqlServer = "jdbc:sqlserver://localhost:49547;databaseName=HOTEL;integratedSecurity=false;user=sa;password=Sql4321";
+    //private String urlSqlServer = "jdbc:sqlserver://localhost:61964;databaseName=HOTEL;integratedSecurity=false;user=sa;password=Sql4321";
 
     public Connection getConexionSqlServer() throws SQLException {
         try {

@@ -18,9 +18,10 @@
             <td ><strong>Nombre </strong></td>
             <td><strong>Apellido</strong></td>
             <td><strong>Direccion</strong></td> 
+           
         </tr>
         <tr>
-            <td>Alexander</td><td>Hamilton</td><td>NY</td> 
+            <td>Alexander</td><td>Hamilton</td><td>NY</td>
 
         </tr></table>
 
