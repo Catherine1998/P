@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.Modelo.Huesped;
 
 import com.Modelo.HuespedI;
+
 /**
  *
  * @author CatherineV
@@ -35,10 +36,7 @@ public class NHuesped extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
-        
+
     }
 
     @Override
@@ -47,31 +45,30 @@ public class NHuesped extends HttpServlet {
         processRequest(request, response);
     }
 
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           
-        String nombre= request.getParameter("nombre");
+
+        String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String direccion = request.getParameter("direccion");
-        
+
         if ("Guardar".equals(request.getParameter("guardar"))) {
- if(!nombre.equalsIgnoreCase("") && !apellido.equalsIgnoreCase("") && !direccion.equalsIgnoreCase("")){
- 
-            Huesped huespeddd = new Huesped(nombre,apellido,direccion);
-         boolean sw=HuespedI.agregarHuesped(huespeddd);
-              
-             if(sw == true){
-    request.getRequestDispatcher("exito.jsp").forward(request, response);
-   }else{
-    PrintWriter out=response.getWriter();
-    out.println(" :( ");
-   }
-       }
+            if (!nombre.equalsIgnoreCase("") && !apellido.equalsIgnoreCase("") && !direccion.equalsIgnoreCase("")) {
+
+                Huesped huespeddd = new Huesped(nombre, apellido, direccion);
+                boolean sw = HuespedI.agregarHuesped(huespeddd);
+
+                if (sw == true) {
+                    request.getRequestDispatcher("exito.jsp").forward(request, response);
+                } else {
+                    PrintWriter out = response.getWriter();
+                    out.println(" :( ");
+                }
+            }
         }
     }
-    
+
     @Override
     public String getServletInfo() {
         return "Short description";

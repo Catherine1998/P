@@ -27,9 +27,10 @@
                     <form action="Servicio">
                         <input type="submit" value="Servicio" method="get" name="submit"/>
                     </form>
-                    <!--<a href="Habitaciones.jsp"> Habitaciones </a>-->
-
                 </td> 
+                <td>
+                    <a href="Habitaciones.jsp"> Habitaciones </a>
+                </td>
                 <!--<td><a href="Habitacion"> Habitaciones </a></td>-->
 
             </tr>
