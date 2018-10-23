@@ -30,8 +30,9 @@
                 </td> 
                 <td>
                     <a href="Habitaciones.jsp"> Habitaciones </a>
+                    <!--<a href="Habitacion"> Habitaciones </a>-->
                 </td>
-                <!--<td><a href="Habitacion"> Habitaciones </a></td>-->
+
 
             </tr>
 
