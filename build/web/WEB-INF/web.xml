@@ -4,9 +4,17 @@
         <servlet-name>NHuesped</servlet-name>
         <servlet-class>com.servlet.NHuesped</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Huespedes</servlet-name>
+        <servlet-class>com.servlet.Huespedes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NHuesped</servlet-name>
         <url-pattern>/nhuesped.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Huespedes</servlet-name>
+        <url-pattern>/Huespedes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

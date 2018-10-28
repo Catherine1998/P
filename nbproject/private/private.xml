@@ -5,11 +5,12 @@
         <group>
             <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/src/java/com/servlet/Servicio.java</file>
             <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/web/Huespedes.jsp</file>
+            <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/src/java/com/servlet/Huespedes.java</file>
+            <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/src/java/com/Modelo/Huesped.java</file>
             <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/web/Menu.jsp</file>
-            <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/src/java/com/servlet/NHuesped.java</file>
+            <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/src/java/com/Modelo/ServicioM.java</file>
             <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/src/java/com/servlet/Habitacion.java</file>
             <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/web/Servicio.jsp</file>
-            <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/src/java/com/conexion/conexionDB.java</file>
             <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/web/NHuesped.jsp</file>
             <file>file:/E:/UMG/progra%202/proyecto/Proyecto/P/web/Habitaciones.jsp</file>
         </group>

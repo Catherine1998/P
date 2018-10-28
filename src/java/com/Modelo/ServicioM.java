@@ -13,12 +13,12 @@ public class ServicioM {
 
     private int id;
     private String descripcion;
-    private int precio;
+    private float precio;
 
     public ServicioM() {
     }
 
-    public ServicioM(int id, String descripcion, int precio) {
+    public ServicioM(int id, String descripcion, float precio) {
         this.id = id;
         this.descripcion = descripcion;
         this.precio = precio;
@@ -40,11 +40,11 @@ public class ServicioM {
         this.descripcion = descripcion;
     }
 
-    public int getPrecio() {
+    public float getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(float precio) {
         this.precio = precio;
     }
 }

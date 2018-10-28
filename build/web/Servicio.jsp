@@ -4,6 +4,9 @@
     Author     : fc
 --%>
 
+<%@page import="com.Modelo.ServicioM"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.servlet.Servicio"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,19 +18,38 @@
         <%@include file="Menu.jsp" %>
         <br>
     <center><h1>Servicios</h1></center>
-    <table style=" width:100%; border: 1px solid black;">
-        <tr>
-            <td ><strong>ID</strong></td>
-            <td><strong>Descripcion</strong></td>
-            <td><strong>Precio</strong></td> 
-        </tr>
-        <c:forEach items="${list}" var="record">
+    <table width="100%" border="1">
+        <thead>
             <tr>
-                <td>${record.getId() }</td>
-                <td>${record.getDescripcion() }</td>
-                <td>${record.getPrecio() }</td>
+                <th>ID</th>
+                <th>Descripcion</th>
+                <th>Precio  ${list}</th> 
             </tr>
-        </c:forEach>
+        </thead>
+        <tbody>
+            <%
+                Servicio h = new Servicio();
+                ArrayList serviciosList = h.fillServicios();
+                for (int i = 0; i < serviciosList.size(); i++) {
+                    ServicioM servicio = (ServicioM) serviciosList.get(i);
+
+            %>
+            <tr>
+                <td>
+                    <%= servicio.getId()%>
+                </td>
+                <td>
+                    <%= servicio.getDescripcion()%>
+                </td>
+                <td>
+                    Q. <%= servicio.getPrecio()%>
+                </td>
+
+            </tr>
+            <%
+                }
+            %> 
+        </tbody>
     </table>
 </body>
 </html>

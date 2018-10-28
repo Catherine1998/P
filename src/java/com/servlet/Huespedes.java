@@ -5,7 +5,7 @@
  */
 package com.servlet;
 
-import com.Modelo.ServicioM;
+import com.Modelo.Huesped;
 import com.conexion.conexionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,10 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,31 +24,31 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fc
  */
-@WebServlet(name = "Servicio", urlPatterns = {"/Servicio"})
-public class Servicio extends HttpServlet {
+public class Huespedes extends HttpServlet {
 
     conexionDB conexion = new conexionDB();
     Connection con = null;
 
-    public ArrayList fillServicios() {
+    public ArrayList fillHabitaciones() {
         try {
 
             con = conexion.getConexionSqlServer();
 
-            String consulta = "SELECT * FROM SERVICIO";
+            String consulta = "SELECT * FROM HUESPED";
 
             PreparedStatement pst = con.prepareStatement(consulta);
             ResultSet rs = pst.executeQuery();
 
-            ArrayList serviciosList = new ArrayList();
+            ArrayList huespe = new ArrayList();
 
             while (rs.next()) {
-                ServicioM serv = new ServicioM(rs.getInt("Id_servicio"),
-                        rs.getString("Descripcion"),
-                        rs.getFloat("Precio"));
-                serviciosList.add(serv);
+                Huesped ha1 = new Huesped(
+                        rs.getString("Nombre"),
+                        rs.getString("Apellido"),
+                        rs.getString("Direccion"));
+                huespe.add(ha1);
             }
-            return serviciosList;
+            return huespe;
         } catch (SQLException ex) {
             return null;
         }
@@ -67,7 +65,22 @@ public class Servicio extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        try {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet Huespedes</title>");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet Huespedes at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        } finally {
+            out.close();
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,29 +95,13 @@ public class Servicio extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<ServicioM> list = new ArrayList<ServicioM>();
-        try {
-            con = conexion.getConexionSqlServer();
 
-            String consulta = "SELECT * FROM SERVICIO";
-            ResultSet rs = null;
-            PreparedStatement pst = null;
-            pst = con.prepareStatement(consulta);
-            rs = pst.executeQuery();
+        ArrayList lista = fillHabitaciones();
+        request.setAttribute("list", lista);
 
-            while (rs.next()) {
-                list.add(new ServicioM(rs.getInt("Id_servicio"),
-                        rs.getString("Descripcion"),
-                        rs.getInt("Precio")));
-            }
+        RequestDispatcher rd = request.getRequestDispatcher("Huespedes.jsp");
+        rd.forward(request, response);
 
-            request.setAttribute("list", list);
-
-            RequestDispatcher rd = request.getRequestDispatcher("Servicio.jsp");
-            rd.forward(request, response);
-        } catch (SQLException ex) {
-
-        }
     }
 
     /**
@@ -119,6 +116,7 @@ public class Servicio extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+
     }
 
     /**
