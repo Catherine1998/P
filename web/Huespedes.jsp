@@ -13,19 +13,37 @@
     </head>
     <body>  <%@include file="Menu.jsp" %><br>
     <center><h1>Huespedes</h1></center>
-    <table   style=" width:100%; border: 1px solid black;" >
-        <tr>
-            <td ><strong>Nombre </strong></td>
-            <td><strong>Apellido</strong></td>
-            <td><strong>Direccion</strong></td> 
-        </tr>
-        <tr>
-            <td>Alexander</td><td>Hamilton</td><td>NY</td> 
 
-        </tr></table>
 
-    <br>      
-    <br>
-    <H4 align="right"><a href="NHuesped.jsp">Ingresar nuevo Huesped</a> </H4>
+    <table width="100%" border="1">
+        <thead>
+            <tr>
+                <th>Nombre </th>
+                <th>Apellido</th>
+                <th>Direccion</th> 
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Alexander</td><td>Hamilton </td><td>NY</td>
+            </tr>
+        <c:if test="${list}">
+
+            <c:forEach items="${list}" var="record">
+                <tr>
+                    <td>${record.getNombre() }</td>
+                    <td>${record.getApellido() }</td>
+                    <td>${record.getDireccion() }</td>
+                </tr>
+            </c:forEach>
+        </c:if>
+
+    </tbody>
+</table>
+
+<br>      
+<br>
+<H4 align="right"><a href="NHuesped.jsp">Ingresar nuevo Huesped</a> </H4>
 </body>
 </html>

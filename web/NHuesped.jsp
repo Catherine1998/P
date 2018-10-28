@@ -1,3 +1,4 @@
+
 <%-- 
     Document   : NHuesped
     Created on : 10/10/2018, 05:55:23 PM
@@ -13,7 +14,7 @@
     </head>
     <body>
         <%@include file="Menu.jsp" %><br>
-        <form action="" method="post">
+        <form action="nhuesped.do" method="post">
 
 
             <center>
@@ -23,14 +24,12 @@
                 <br>
                 Nombre:  <input type="text" name="nombre" placeholder="Ingrese Nombre">
                 <br>
-                <br>Apellidos: <input type="text"  name="Apellidos" placeholder="Ingrese los Apellidos">
+                <br>Apellido: <input type="text"  name="apellido" placeholder="Ingrese el apellido">
                 <br>
-                <br>Direccion:<input type="text" name="direccion"  placeholder="Ingrese direccion" style=" top: 2px; ">
-                <br>
-                <br>Telefono: <input type="text" name="telefono" placeholder="Ingrese direccion">
+                <br>Direccion:<input type="text" name="direccion"  placeholder="Ingrese dirección" style=" top: 2px; ">
                 <br>
                 <br>
-                <br><input type="submit" value="Guardar" ><input type="submit" value="Cancelar">
+                <br><input type="submit" value="Guardar" name="guardar" ><input type="submit" value="Cancelar">
 
 
                 </form> 
