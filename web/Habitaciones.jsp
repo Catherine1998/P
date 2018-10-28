@@ -13,51 +13,59 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>BAROS</title>
+        <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     </head>
-    <body>  <%@include file="Menu.jsp" %><br>
-    <center><h1>Habitaciones</h1></center>
+    <body>  
+        <%@include file="Menu.jsp" %>
 
-    <table width="100%" border="1">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Tipo</th>
-                <th>Nivel</th>
-                <th>Comentario</th>
-                <th>Precio</th>
-            </tr>
-        </thead>
-        <tbody>
-            <%
-                Habitacion h = new Habitacion();
-                ArrayList habitaciones = h.fillHabitaciones();
-                for (int i = 0; i < habitaciones.size(); i++) {
-                    HabitacionM habitacion = (HabitacionM) habitaciones.get(i);
+        <section class="sec1"><br><br><br><br><br><br><br><br><br><br>
+            <h1>Habitaciones</h1>
+            <table width="100%" border="1">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tipo</th>
+                        <th>Nivel</th>
+                        <th>Comentario</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        Habitacion h = new Habitacion();
+                        ArrayList habitaciones = h.fillHabitaciones();
+                        for (int i = 0; i < habitaciones.size(); i++) {
+                            HabitacionM habitacion = (HabitacionM) habitaciones.get(i);
 
-            %>
-            <tr>
-                <td>
-                    <%= habitacion.getID()%>
-                </td>
-                <td>
-                    <%= habitacion.getTipo()%>
-                </td>
-                <td>
-                    <%= habitacion.getNivel()%>
-                </td>
-                <td>
-                    <%= habitacion.getComentario()%>
-                </td>
-                <td>
-                    Q. <%= habitacion.getPrecio()%>
-                </td>
-            </tr>
-            <%
-                }
-            %>                   
+                    %>
+                    <tr>
+                        <td>
+                            <%= habitacion.getID()%>
+                        </td>
+                        <td>
+                            <%= habitacion.getTipo()%>
+                        </td>
+                        <td>
+                            <%= habitacion.getNivel()%>
+                        </td>
+                        <td>
+                            <%= habitacion.getComentario()%>
+                        </td>
+                        <td>
+                            Q. <%= habitacion.getPrecio()%>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>                   
 
-        </tbody>
-    </table>
-</body>
+                </tbody>
+            </table>
+        </section>
+
+        <%@include file="Footer.jsp" %>
+
+    </body>
 </html>

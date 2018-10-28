@@ -7,41 +7,36 @@
 
 <!DOCTYPE html>
 <html>
-
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min">
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script type="text/javascript">
+            var zero = 0;
+            $(document).ready(function () {
+                $(window).on('scroll', function () {
+                    $('.navbar').toggleClass('hide', $(window).scrollTop()
+                            > zero);
+                    zero = $(window).scrollTop();
+                });
+            });
+        </script>
+    </head>
     <body>
-    <center>
-
-        <table  style=" width:100%; border: 1px solid black;
-                border-collapse: collapse; font-size: 20px;" >
-            <tr>
-
-                <td><a href="index.jsp"> Inicio </a> </td>
-                <td><a href="Reservar.jsp"> Reservar </a></td>
-                <td><a href="Reservaciones.jsp"> Reservaciones </a></td>
-                <td><a href="Facturar.jsp"> Facturar </a></td>
-                <td><a href="Facturas.jsp"> Facturas </a></td>
-                <td><a href="Servicios.jsp"> Servicio </a></td>
-
-                <td>
-                    <form action="Huespedes" method="get">
-                        <input type="submit" value="Huespedes" />
-                    </form>
-                    
-                    <!--<a href="Huespedes.jsp"> Huespedes </a>-->
-                </td>
-
-                <td>
-                    <a href="Servicio.jsp">Servicios</a>
-                </td> 
-                <td>
-                    <a href="Habitaciones.jsp"> Habitaciones </a>
-                    <!--<a href="Habitacion"> Habitaciones </a>-->
-                </td>
-
-
-            </tr>
-
-        </table>
-    </center>     
-</body>
+        <div class="navbar">
+            <a href="#" class="channel"></a>
+            <ul>
+                <li><a href="index.jsp" class="active">Inicio</a></li>
+                <li><a href="Reservar.jsp">Reserva</a></li>
+                <li><a href="Reservaciones.jsp">Reservaciones</a></li>
+                <li><a href="Servicios.jsp">Servicios</a></li>
+                <li><a href="NHuesped.jsp">Huesped</a></li>
+                <li><a href="Huespedes.jsp">Huespedes</a></li>
+                <li><a href="Facturar.jsp">Facturar</a></li>
+                <li><a href="Facturas.jsp">Facturas</a></li>
+                <li><a href="Habitaciones.jsp">Habitaciones</a></li>
+            </ul>
+        </div>
+    </body>
 </html>
