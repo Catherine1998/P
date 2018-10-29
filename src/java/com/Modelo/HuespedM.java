@@ -17,14 +17,14 @@ import javax.swing.JOptionPane;
  *
  * @author CatherineV
  */
-public class Huesped {
+public class HuespedM {
     private String nombre;
     private String apellido;
     private String direccion;
     conexionDB conect = new conexionDB(); 
 
 
-    public Huesped(String nombre, String apellido, String direccion) {
+    public HuespedM(String nombre, String apellido, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;

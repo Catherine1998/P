@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>BAROS</title>
-        <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     </head>
     <body>
@@ -31,44 +31,31 @@
             <br>
             <h1>Reservaciones Generadas</h1>
             <br>
-            <table style=" width:100%; border: 1px solid white;">
-                <tr>
-                    <td>
-                        <strong>Fecha Reservación </strong>
-                    </td>
-                    <td>
-                        <strong>Ingreso</strong>
-                    </td>
-                    <td>
-                        <strong>Salida</strong>
-                    </td>
-                    <td>
-                        <strong>Cliente </strong>
-                    </td>
-                    <td>
-                        <strong>Total</strong>
-                    </td>
-                    <td>
-                        <strong>Tipo de habitacion</strong>
-                    </td>
-                    <td>
-                        <strong>Nivel</strong>
-                    </td>
-                    <td>
-                        <strong>Numero de habitacion</strong>
-                    </td>
-
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4 </td>
-                    <td>5</td>
-                    <td>6</td>
-
-                </tr>
-
+            <table border="1" class="grid">
+                <thead>
+                    <tr>
+                        <th>Fecha Reservación</th>
+                        <th>Ingreso</th>
+                        <th>Salida</th>
+                        <th>Cliente </th>
+                        <th>Total</th>
+                        <th>Tipo de habitacion</th>
+                        <th>Nivel</th>
+                        <th>Numero de habitacion</th>
+                    </tr>
+                <thead>                
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4 </td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                        <td>8</td>
+                    </tr>
+                </tbody>
             </table>
         </section>
         <%@include file="Footer.jsp" %>

@@ -5,7 +5,7 @@
  */
 package com.servlet;
 
-import com.Modelo.Huesped;
+import com.Modelo.HuespedM;
 import com.Modelo.HuespedI;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.Modelo.Huesped;
+import com.Modelo.HuespedM;
 
 import com.Modelo.HuespedI;
 
@@ -56,7 +56,7 @@ public class NHuesped extends HttpServlet {
         if ("Guardar".equals(request.getParameter("guardar"))) {
             if (!nombre.equalsIgnoreCase("") && !apellido.equalsIgnoreCase("") && !direccion.equalsIgnoreCase("")) {
 
-                Huesped huespeddd = new Huesped(nombre, apellido, direccion);
+                HuespedM huespeddd = new HuespedM(nombre, apellido, direccion);
                 boolean sw = HuespedI.agregarHuesped(huespeddd);
 
                 if (sw == true) {

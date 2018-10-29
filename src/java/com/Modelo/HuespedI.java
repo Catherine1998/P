@@ -8,7 +8,7 @@ package com.Modelo;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import com.Modelo.Huesped;
+import com.Modelo.HuespedM;
 import com.conexion.conexionDB;
 import java.sql.PreparedStatement;
 
@@ -18,7 +18,7 @@ import java.sql.PreparedStatement;
  */
 public class HuespedI {
 
-    public static boolean agregarHuesped(Huesped huesped1) {
+    public static boolean agregarHuesped(HuespedM huesped1) {
         boolean agregado = false;
         try {
             conexionDB c = new conexionDB();

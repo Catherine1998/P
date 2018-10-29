@@ -10,7 +10,6 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min">
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script type="text/javascript">
             var zero = 0;
@@ -30,7 +29,8 @@
                 <li><a href="index.jsp" class="active">Inicio</a></li>
                 <li><a href="Reservar.jsp">Reserva</a></li>
                 <li><a href="Reservaciones.jsp">Reservaciones</a></li>
-                <li><a href="Servicios.jsp">Servicios</a></li>
+                <li><a href="Servicios.jsp">Servicio</a></li>
+                <li><a href="Servicio.jsp">Servicios</a></li>
                 <li><a href="NHuesped.jsp">Huesped</a></li>
                 <li><a href="Huespedes.jsp">Huespedes</a></li>
                 <li><a href="Facturar.jsp">Facturar</a></li>

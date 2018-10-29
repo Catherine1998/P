@@ -4,40 +4,55 @@
     Author     : CatherineV
 --%>
 
+<%@page import="com.Modelo.HuespedM"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.servlet.Huespedes"%>
+<%@page import="com.servlet.Habitacion"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>BAROS</title>
-        <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     </head>
     <body>  
         <%@include file="Menu.jsp" %>
 
         <section class="sec1"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <center><h1>Huespedes</h1></center><br>
-            <table width="100%" border="1">
+            ><h1>Huespedes</h1><br>
+            <table border="1" class="grid">
                 <thead>
                     <tr>
                         <th>Nombre </th>
                         <th>Apellido</th>
                         <th>Direccion</th> 
-
                     </tr>
                 </thead>
                 <tbody>
-                <c:if test="${list}">
+                    <%
+                        Huespedes h = new Huespedes();
+                        ArrayList huespedes = h.fillHuespedes();
+                        for (int i = 0; i < huespedes.size(); i++) {
+                            HuespedM huesped = (HuespedM) huespedes.get(i);
 
-                    <c:forEach items="${list}" var="record">
-                        <tr>
-                            <td>${record.getNombre() }</td>
-                            <td>${record.getApellido() }</td>
-                            <td>${record.getDireccion() }</td>
-                        </tr>
-                    </c:forEach>
-                </c:if>
+                    %>
+                    <tr>
+                        <td>
+                            <%= huesped.getNombre()%>
+                        </td>
+                        <td>
+                            <%= huesped.getApellido()%>
+                        </td>
+                        <td>
+                            <%= huesped.getDireccion()%>
+                        </td>
+                    </tr>
+                    <%
+                        }
+                    %>                   
+
                 </tbody>
             </table>
         </section>

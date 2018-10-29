@@ -33,26 +33,28 @@
                 <h1>Servicio</h1>
                 <br>
                 <br>
-                <h2>Descripción:</h2>
-                <textarea rows="1" cols="50" placeholder="Ingrese los datos: ">
-                </textarea>
-                <br>
-                <br>
-                <h2>Precio:</h2>
-                <input type="text" name="">
-                <br>
-                <br>
-                <h2>Habitacion:</h2>
+                <p>
+                    Descripción:
+                    <textarea rows="1" cols="50" placeholder="Ingrese los datos: ">
+                    </textarea>
+                    <br>
+                    <br>
+                    Precio:
+                    <input type="text" name="">
+                    <br>
+                    <br>
+                    Habitacion:
 
-                <select>
-                    <option value="">1</option>
-                    <option value="">2</option>
-                    <option value="">3</option>
-                    <option value="">4</option>
-                </select>
-                <br>
+                    <select>
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                        <option value="">4</option>
+                    </select>
+                    <br>
 
-                <br>
+                    <br>
+                </p>
                 <input type="submit" value="Guardar">
                 <input type="submit" value="Cancelar">
             </center>
@@ -61,7 +63,5 @@
         <br><input type="submit" value="Guardar" ><input type="submit" value="Cancelar">
 
         <%@include file="Footer.jsp" %>
-
-
     </body>
 </html>

@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>BAROS</title>
-        <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 
     </head>
@@ -36,38 +36,28 @@
             <br>
             <br>
             <h1>Facturas Generadas</h1>
-            <table style=" width:100%; border: 2px solid white;">
+            <table border="1" class="grid">
+                <thead>
+                    <tr>
+                        <th>Id </th>
+                        <th>Nit</th>
+                        <th>Nombre del Cliente</th>
+                        <th>Fecha</th>
+                        <th>Descrición</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4 </td>
+                        <td>5</td>
+                        <td>6</td>
 
-                <br>
-                <tr>
-                    <td>
-                        <strong>Id </strong>
-                    </td>
-                    <td>
-                        <strong>Nit</strong>
-                    </td>
-                    <td>
-                        <strong>Nombre del Cliente</strong>
-                    </td>
-                    <td>
-                        <strong>Fecha</strong>
-                    </td>
-                    <td>
-                        <strong>Descrición</strong>
-                    </td>
-                    <td>
-                        <strong>Total </strong>
-                    </td>
-                </tr>
-                <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4 </td>
-                    <td>5</td>
-                    <td>6</td>
-
-                </tr>
+                    </tr>
+                </tbody>
             </table>
         </section>
 

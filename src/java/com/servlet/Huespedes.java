@@ -5,7 +5,7 @@
  */
 package com.servlet;
 
-import com.Modelo.Huesped;
+import com.Modelo.HuespedM;
 import com.conexion.conexionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -29,7 +29,7 @@ public class Huespedes extends HttpServlet {
     conexionDB conexion = new conexionDB();
     Connection con = null;
 
-    public ArrayList fillHabitaciones() {
+    public ArrayList fillHuespedes() {
         try {
 
             con = conexion.getConexionSqlServer();
@@ -42,7 +42,7 @@ public class Huespedes extends HttpServlet {
             ArrayList huespe = new ArrayList();
 
             while (rs.next()) {
-                Huesped ha1 = new Huesped(
+                HuespedM ha1 = new HuespedM(
                         rs.getString("Nombre"),
                         rs.getString("Apellido"),
                         rs.getString("Direccion"));
@@ -66,21 +66,7 @@ public class Huespedes extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Huespedes</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Huespedes at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -96,7 +82,7 @@ public class Huespedes extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        ArrayList lista = fillHabitaciones();
+        ArrayList lista = fillHuespedes();
         request.setAttribute("list", lista);
 
         RequestDispatcher rd = request.getRequestDispatcher("Huespedes.jsp");
@@ -115,7 +101,6 @@ public class Huespedes extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
 
     }
 

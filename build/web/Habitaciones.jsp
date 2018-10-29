@@ -14,7 +14,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>BAROS</title>
-        <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     </head>
     <body>  
@@ -22,7 +22,7 @@
 
         <section class="sec1"><br><br><br><br><br><br><br><br><br><br>
             <h1>Habitaciones</h1>
-            <table width="100%" border="1">
+            <table border="1" class="grid">
                 <thead>
                     <tr>
                         <th>ID</th>
