@@ -20,10 +20,42 @@
 
 
         <section class="sec1"><br><br><br><br><br><br><br><br><br><br>
-            <p>
-                
-            </p>
-        </section>
+           
+            
+            <center>    Facturación 
+                 
+                       <br>
+                    <br>
+                       <br>
+                    <br>
+                   
+                    Nit:  <input type="text" name="nitt">
+                    
+                    Nombre: <input type="text" name="nombre">
+                    <br>
+                    <br>
+                    Fecha: <input type="date" name="Fecha">
+                    <br>
+                    <br>
+                    Noches: <input type="text" name="noches">  
+                      Tipo de Habitacion: <select>
+                    <option value="">Simple</option>
+                    <option value="">Doble</option>
+                 
+                </select> 
+                          <br>
+                    <br>
+                   
+                       <input type="submit" value="Calcular" name="Calcular" >
+                         </center>
+                           <br>
+                    <br>
+                       <br>
+                    <br>
+                       <br>
+                    <br>
+                   
+            
 
         <%@include file="Footer.jsp" %>
 
