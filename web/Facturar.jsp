@@ -22,7 +22,8 @@
         <section class="sec1"><br><br><br><br><br><br><br><br><br><br>
 
 
-            <center>    Facturación 
+            <center>  
+                <h1>Facturación</h1>
 
                 <br>
                 <br>
@@ -48,16 +49,7 @@
 
                 <input type="submit" value="Calcular" name="Calcular" >
             </center>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-
-
-
-            <%@include file="Footer.jsp" %>
-
-            </body>
-            </html>
+        </section>
+        <%@include file="Footer.jsp" %>
+    </body>
+</html>
