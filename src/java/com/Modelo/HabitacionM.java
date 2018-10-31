@@ -14,13 +14,13 @@ public class HabitacionM {
     public HabitacionM() {
     }
 
-    public HabitacionM(int ID, String Tipo, int Nivel, float Precio, String Comentario, String Estado) {
+    public HabitacionM(int ID, String Tipo, int Nivel, float Precio, String Comentario, Boolean Estado) {
         this.ID = ID;
         this.Tipo = Tipo;
         this.Nivel = Nivel;
         this.Precio = Precio;
         this.Comentario = Comentario;
-        this.Estado = Estado;
+        this.Estado = Estado.toString();
     }
 
     private int ID;
@@ -71,6 +71,11 @@ public class HabitacionM {
     }
 
     public String getEstado() {
+        if (Estado.equals("false")) {
+            Estado = "Vacio";
+        } else if (Estado.equals("true")) {
+            Estado = "Ocupado";
+        }
         return Estado;
     }
 

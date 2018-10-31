@@ -34,7 +34,15 @@ public class Habitacion extends HttpServlet {
 
             con = conexion.getConexionSqlServer();
 
-            String consulta = "SELECT * FROM HABITACION";
+            String consulta = "SELECT Id_habitacion,"
+                                + " TP.Descripcion AS TIPO,"
+                                + " Nivel,"
+                                + " Comentario,"
+                                + " Precio,"
+                                + " Estado"
+                                + " FROM HABITACION H "
+                                + " INNER JOIN TIPO TP "
+                                + " ON H.Id_tipo = TP.Id_tipo";
 
             PreparedStatement pst = con.prepareStatement(consulta);
             ResultSet rs = pst.executeQuery();
@@ -43,11 +51,11 @@ public class Habitacion extends HttpServlet {
 
             while (rs.next()) {
                 HabitacionM ha1 = new HabitacionM(rs.getInt("Id_habitacion"),
-                        rs.getString("Id_tipo"),
+                        rs.getString("TIPO"),
                         Integer.parseInt(rs.getString("Nivel")),
                         rs.getFloat("Precio"),
                         rs.getString("Comentario"),
-                        rs.getString("Comentario"));
+                        rs.getBoolean("Estado"));
                 habitaciones.add(ha1);
             }
             return habitaciones;

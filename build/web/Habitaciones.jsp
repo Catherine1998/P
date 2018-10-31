@@ -30,6 +30,7 @@
                         <th>Nivel</th>
                         <th>Comentario</th>
                         <th>Precio</th>
+                        <th>Estado</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,6 +56,9 @@
                         </td>
                         <td>
                             Q. <%= habitacion.getPrecio()%>
+                        </td>
+                        <td>
+                             <%= habitacion.getEstado()%>
                         </td>
                     </tr>
                     <%
