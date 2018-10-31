@@ -24,7 +24,6 @@
 
             <center>  
                 <h1>Facturación</h1>
-
                 <br>
                 <br>
                 <br>
