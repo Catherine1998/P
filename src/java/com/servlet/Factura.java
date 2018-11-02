@@ -5,7 +5,6 @@
  */
 package com.servlet;
 
-import com.Modelo.FacturarI;
 import com.Modelo.FacturarM;
 import com.conexion.conexionDB;
 import java.io.IOException;
@@ -118,11 +117,11 @@ public class Factura extends HttpServlet {
         if ("Guardar".equals(request.getParameter("guardar"))) {
             //if (!nombre.equalsIgnoreCase("") && !fecha.equalsIgnoreCase("") && !noches.equalsIgnoreCase("")) {
 
-                //FacturarM factura = new FacturarM(1, 1, 1, 1, 1);
+            //FacturarM factura = new FacturarM(1, 1, 1, 1, 1);
             //boolean sw = FacturarI.agregar(factura);
             //if (sw == true) {
             request.getRequestDispatcher("exito.jsp").forward(request, response);
-                //} else {
+            //} else {
             //    PrintWriter out = response.getWriter();
             //    out.println(" :( ");
             //}

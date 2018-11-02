@@ -28,7 +28,7 @@
                 <p> Direccion:<input type="text" name="direccion"  placeholder="Ingrese dirección" style=" top: 2px; "></p>
                 <div class="btn">
                     <input type="submit" value="Guardar" name="guardar" >
-                    <input type="submit" value="Cancelar">
+                    <input type="submit" value="Cancelar" name="cancelar">
                 </div>
             </form> 
         </section>

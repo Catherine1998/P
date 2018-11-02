@@ -18,6 +18,11 @@ public class ServicioM {
     public ServicioM() {
     }
 
+    public ServicioM(String descripcion, float precio) {
+        this.descripcion = descripcion;
+        this.precio = precio;
+    }
+
     public ServicioM(int id, String descripcion, float precio) {
         this.id = id;
         this.descripcion = descripcion;

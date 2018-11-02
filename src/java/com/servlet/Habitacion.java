@@ -35,14 +35,51 @@ public class Habitacion extends HttpServlet {
             con = conexion.getConexionSqlServer();
 
             String consulta = "SELECT Id_habitacion,"
-                                + " TP.Descripcion AS TIPO,"
-                                + " Nivel,"
-                                + " Comentario,"
-                                + " Precio,"
-                                + " Estado"
-                                + " FROM HABITACION H "
-                                + " INNER JOIN TIPO TP "
-                                + " ON H.Id_tipo = TP.Id_tipo";
+                    + " TP.Descripcion AS TIPO,"
+                    + " Nivel,"
+                    + " Comentario,"
+                    + " Precio,"
+                    + " Estado"
+                    + " FROM HABITACION H "
+                    + " INNER JOIN TIPO TP "
+                    + " ON H.Id_tipo = TP.Id_tipo";
+
+            PreparedStatement pst = con.prepareStatement(consulta);
+            ResultSet rs = pst.executeQuery();
+
+            ArrayList habitaciones = new ArrayList();
+
+            while (rs.next()) {
+                HabitacionM ha1 = new HabitacionM(rs.getInt("Id_habitacion"),
+                        rs.getString("TIPO"),
+                        Integer.parseInt(rs.getString("Nivel")),
+                        rs.getFloat("Precio"),
+                        rs.getString("Comentario"),
+                        rs.getBoolean("Estado"));
+                habitaciones.add(ha1);
+            }
+            return habitaciones;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+
+    public ArrayList fillHabitacionesVacias() {
+        try {
+
+            con = conexion.getConexionSqlServer();
+
+            String consulta = "SELECT Id_habitacion,"
+                    + " TP.Descripcion AS TIPO,"
+                    + " Nivel,"
+                    + " Comentario,"
+                    + " Precio,"
+                    + " Estado"
+                    + " FROM HABITACION H "
+                    + " INNER JOIN TIPO TP "
+                    + " ON H.Id_tipo = TP.Id_tipo"
+                    + " WHERE Estado = 0 "
+                    + " ORDER BY NIVEL ";
 
             PreparedStatement pst = con.prepareStatement(consulta);
             ResultSet rs = pst.executeQuery();

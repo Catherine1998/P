@@ -49,11 +49,15 @@ public class NHuesped extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        String nombre = request.getParameter("nombre");
-        String apellido = request.getParameter("apellido");
-        String direccion = request.getParameter("direccion");
+        if ("cancelar".equals(request.getParameter("cancelar").toLowerCase())) {
+            request.getRequestDispatcher("NHuesped.jsp").forward(request, response);
+        }
 
-        if ("Guardar".equals(request.getParameter("guardar"))) {
+        if ("guardar".equals(request.getParameter("guardar").toLowerCase())) {
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String direccion = request.getParameter("direccion");
+
             if (!nombre.equalsIgnoreCase("") && !apellido.equalsIgnoreCase("") && !direccion.equalsIgnoreCase("")) {
 
                 HuespedM huespeddd = new HuespedM(nombre, apellido, direccion);

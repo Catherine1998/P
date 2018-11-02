@@ -4,28 +4,31 @@
  * and open the template in the editor.
  */
 package com.Modelo;
-import com.conexion.conexionDB;
 
 /**
  *
  * @author Jorge Escobar
  */
 public class AsignacionM {
-    
+
     private int Idasignacion;
     private int Idregistro;
     private int Idhabitacion;
     private int Idhuesped;
-    conexionDB conect = new conexionDB(); 
-    
-    public AsignacionM(int Idasignacion, int Idregistro, int Idhabitacion, int Idhuesped)
-    {
-    this.Idasignacion=Idasignacion;
-    this.Idregistro=Idregistro;
-    this.Idhabitacion=Idhabitacion;
-    this.Idhuesped=Idhuesped;
+
+    public AsignacionM(int Idhabitacion, int Idhuesped) {
+        this.Idhabitacion = Idhabitacion;
+        this.Idhuesped = Idhuesped;
     }
-        /**
+
+    public AsignacionM(int Idasignacion, int Idregistro, int Idhabitacion, int Idhuesped) {
+        this.Idasignacion = Idasignacion;
+        this.Idregistro = Idregistro;
+        this.Idhabitacion = Idhabitacion;
+        this.Idhuesped = Idhuesped;
+    }
+
+    /**
      * @return the Idasignacion
      */
     public int getIdasignacion() {

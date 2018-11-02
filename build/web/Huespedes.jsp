@@ -39,13 +39,12 @@
                             HuespedM huesped = (HuespedM) huespedes.get(i);
 
                     %>
-                    <tr>
-                        <td><%= huesped.getNombre()%></td>
+                    <tr id="<%= huesped.getId()%>">
+                        <td name="nombre"><%= huesped.getNombre()%></td>
                         <td><%= huesped.getApellido()%></td>
                         <td><%= huesped.getDireccion()%></td>
                         <td>
                             <form action="Huespedes" method="POST">
-
                                 <input type="submit" value="edit" name="edit" >
                                 <input type="submit" value="delete" name="delete">
                             </form>

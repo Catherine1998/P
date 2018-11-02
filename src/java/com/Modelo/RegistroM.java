@@ -4,14 +4,13 @@
  * and open the template in the editor.
  */
 package com.Modelo;
-import com.conexion.conexionDB;
 
 /**
  *
  * @author Jorge Escobar
  */
 public class RegistroM {
-    
+
     private int Idregistro;
     private int Idhuesped;
     private String fhreserva;
@@ -19,17 +18,24 @@ public class RegistroM {
     private String fhfiregistro;
     private String fhpago;
     private float total;
-    conexionDB conect = new conexionDB(); 
-    
-    public RegistroM(int idregistro, int idhuesped, String fhreserva,String fhinresgistro,String fhfiregistro,String fhpago, float pago)
-    {
-    this.Idregistro=Idregistro;
-    this.Idhuesped=Idhuesped;
-    this.fhreserva=fhreserva;
-    this.fhinregistro=fhinregistro;
-    this.fhfiregistro=fhfiregistro;
-    this.total=total;
+
+    public RegistroM(int idhuesped, String fhreserva, String fhinresgistro, 
+                        String fhfiregistro, String fhpago, float pago) {
+        this.Idhuesped = idhuesped;
+        this.fhreserva = fhreserva;
+        this.fhinregistro = fhinresgistro;
+        this.fhfiregistro = fhfiregistro;
     }
+
+    public RegistroM(int idregistro, int idhuesped, String fhreserva, String fhinresgistro, String fhfiregistro, String fhpago, float pago) {
+        this.Idregistro = idregistro;
+        this.Idhuesped = idhuesped;
+        this.fhreserva = fhreserva;
+        this.fhinregistro = fhinresgistro;
+        this.fhfiregistro = fhfiregistro;
+
+    }
+
     /**
      * @return the Idregistro
      */

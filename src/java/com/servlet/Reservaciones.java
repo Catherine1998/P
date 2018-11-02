@@ -5,6 +5,9 @@
  */
 package com.servlet;
 
+import com.Modelo.AsignacionM;
+import com.Modelo.RegistroM;
+import com.Modelo.ReservaI;
 import com.Modelo.ReservacionM;
 import com.conexion.conexionDB;
 import java.io.IOException;
@@ -13,7 +16,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -101,7 +107,7 @@ public class Reservaciones extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
     /**
@@ -115,7 +121,48 @@ public class Reservaciones extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        if ("Guardar".equals(request.getParameter("guardar"))) {
+
+            String fechaIngreso = request.getParameter("fechaIngreso");
+            String fechaSalida = request.getParameter("fechaSalida");
+            String tiempo = request.getParameter("tiempo");
+            String cliente = request.getParameter("clientes");
+            String habitacion = request.getParameter("habitacion");
+
+            if (!cliente.equalsIgnoreCase("") && !fechaIngreso.equalsIgnoreCase("")) {
+                int habitacionID = 0, clienteID = 0;
+                float pago = 0;
+                try {
+                    pago = 2 * Float.parseFloat(tiempo);
+                    habitacionID = Integer.parseInt(habitacion);
+                    clienteID = Integer.parseInt(cliente);
+
+                } catch (Exception ex1) {
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
+                    return;
+                }
+
+                RegistroM reserva = new RegistroM(
+                        Integer.parseInt(cliente),
+                        "",
+                        fechaIngreso,
+                        fechaSalida,
+                        "",
+                        pago);
+                AsignacionM asignacion = new AsignacionM(
+                        habitacionID,
+                        clienteID);
+                boolean sw = ReservaI.agregarAsignacion(asignacion, reserva);
+                if (sw == true) {
+                    request.getRequestDispatcher("exito.jsp").forward(request, response);
+                } else {
+                    PrintWriter out = response.getWriter();
+                    out.println(" :( ");
+                }
+            }
+        }
+
     }
 
     /**

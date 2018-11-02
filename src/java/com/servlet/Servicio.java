@@ -5,6 +5,7 @@
  */
 package com.servlet;
 
+import com.Modelo.ServicioI;
 import com.Modelo.ServicioM;
 import com.conexion.conexionDB;
 import java.io.IOException;
@@ -14,8 +15,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -82,7 +81,7 @@ public class Servicio extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
- 
+
     }
 
     /**
@@ -96,7 +95,24 @@ public class Servicio extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
+        if ("Guardar".equals(request.getParameter("guardar"))) {
+            String nombre = request.getParameter("descripcion");
+            String precioString = request.getParameter("precio");
+            float precio = Float.parseFloat(precioString);
+            if (!nombre.equalsIgnoreCase("") && !precioString.equalsIgnoreCase("")) {
+
+                ServicioM servicio = new ServicioM(nombre, precio);
+                boolean sw = ServicioI.agregarServicio(servicio);
+
+                if (sw == true) {
+                    request.getRequestDispatcher("exito.jsp").forward(request, response);
+                } else {
+                    PrintWriter out = response.getWriter();
+                    out.println(" :( ");
+                }
+            }
+        }
     }
 
     /**

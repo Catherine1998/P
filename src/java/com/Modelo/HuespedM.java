@@ -19,15 +19,31 @@ import javax.swing.JOptionPane;
  */
 public class HuespedM {
 
+    private int id;
     private String nombre;
     private String apellido;
     private String direccion;
+
+    public HuespedM(int id, String nombre, String apellido, String direccion) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.direccion = direccion;
+    }
 
     public HuespedM(String nombre, String apellido, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     /**

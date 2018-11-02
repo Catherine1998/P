@@ -14,6 +14,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -43,6 +44,7 @@ public class Huespedes extends HttpServlet {
 
             while (rs.next()) {
                 HuespedM ha1 = new HuespedM(
+                        rs.getInt("Id_huesped"),
                         rs.getString("Nombre"),
                         rs.getString("Apellido"),
                         rs.getString("Direccion"));
@@ -101,10 +103,15 @@ public class Huespedes extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if ("edit".equals(request.getParameter("edit"))) {
 
-        } else if ("delete".equals(request.getParameter("delete"))) {
-            
+        if ("edit".equals(request.getParameter("edit").toLowerCase())) {
+            Enumeration<String> k = request.getParameterNames();
+            Enumeration<String> kk = request.getAttributeNames();
+
+            request.getRequestDispatcher("NHuesped.jsp").forward(request, response);
+
+        } else if ("delete".equals(request.getParameter("delete".toLowerCase()))) {
+
         }
     }
 

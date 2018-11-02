@@ -24,7 +24,7 @@ public class ServicioI {
             conexionDB c = new conexionDB();
             Connection con = c.getConexionSqlServer();
             if (con != null) {
-                String consulta = "INSERT INTO SERVICIO VALUES ('" + servicio1.getId() + "','" + servicio1.getDescripcion() + "','" + servicio1.getPrecio() + "')";
+                String consulta = "INSERT INTO SERVICIO (Descripcion, Precio) VALUES ('" + servicio1.getDescripcion() + "','" + servicio1.getPrecio() + "')";
 
                 Statement st = con.createStatement();
                 st.executeUpdate(consulta);

@@ -23,6 +23,17 @@ public class ReservacionM {
     private int Nivel;
     private int numero_habitacion;
 
+    public ReservacionM(Date fecha_reservacion, Date ingreso, Date salida, String cliente, float total, String tipo_de_habitacion, int Nivel, int numero_habitacion) {
+        this.fecha_reservacion = fecha_reservacion;
+        this.ingreso = ingreso;
+        this.salida = salida;
+        this.cliente = cliente;
+        this.total = total;
+        this.tipo_de_habitacion = tipo_de_habitacion;
+        this.Nivel = Nivel;
+        this.numero_habitacion = numero_habitacion;
+    }
+
     public ReservacionM(int id, Date fecha_reservacion, Date ingreso, Date salida, String cliente, float total, String tipo_de_habitacion, int Nivel, int numero_habitacion) {
         this.id = id;
         this.fecha_reservacion = fecha_reservacion;
@@ -42,6 +53,7 @@ public class ReservacionM {
     public void setId(int id) {
         this.id = id;
     }
+
     public Date getFecha_reservacion() {
         return fecha_reservacion;
     }

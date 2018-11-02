@@ -20,8 +20,8 @@
                 <h1>Servicio</h1>
             </div>
             <form action="Servicio" method="POST">
-                <p>Descripción: <textarea rows="1" cols="50" placeholder="Ingrese los datos: "></textarea></p>
-                <p>Precio: <input type="text" name=""></p>
+                <p>Descripción: <textarea name="descripcion" rows="1" cols="50" placeholder="Ingrese los datos: "></textarea></p>
+                <p>Precio: <input type="text" name="precio"></p>
                 <div class="btn">
                     <input type="submit" value="Guardar" name="guardar" >
                     <input type="submit" value="Cancelar">
