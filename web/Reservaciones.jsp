@@ -20,20 +20,9 @@
         <%@include file="Menu.jsp" %>
 
         <section class="sec1">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h1>Reservaciones Generadas</h1>
-            <br>
+            <div class="title">
+                <h1>Reservaciones Generadas</h1>
+            </div>
             <table border="1" class="grid">
                 <thead>
                     <tr>
@@ -72,13 +61,13 @@
                             Q. <%= reser.getTotal()%>
                         </td>
                         <td>
-                             <%= reser.getTipo_de_habitacion()%>
+                            <%= reser.getTipo_de_habitacion()%>
                         </td>
                         <td>
-                             <%= reser.getNivel()%>
+                            <%= reser.getNivel()%>
                         </td>
                         <td>
-                             <%= reser.getNumero_habitacion()%>
+                            <%= reser.getNumero_habitacion()%>
                         </td>
                     </tr>
                     <%

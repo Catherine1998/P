@@ -82,29 +82,7 @@ public class Servicio extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        List<ServicioM> list = new ArrayList<ServicioM>();
-        try {
-            con = conexion.getConexionSqlServer();
-
-            String consulta = "SELECT * FROM SERVICIO";
-            ResultSet rs = null;
-            PreparedStatement pst = null;
-            pst = con.prepareStatement(consulta);
-            rs = pst.executeQuery();
-
-            while (rs.next()) {
-                list.add(new ServicioM(rs.getInt("Id_servicio"),
-                        rs.getString("Descripcion"),
-                        rs.getInt("Precio")));
-            }
-
-            request.setAttribute("list", list);
-
-            RequestDispatcher rd = request.getRequestDispatcher("Servicio.jsp");
-            rd.forward(request, response);
-        } catch (SQLException ex) {
-
-        }
+ 
     }
 
     /**

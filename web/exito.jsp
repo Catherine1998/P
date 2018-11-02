@@ -9,9 +9,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>BAROS</title>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     </head>
     <body>
-        <h1>Datos ingresados correctamente!</h1>
+        <%@include file="Menu.jsp" %>
+        <section class="sec1">
+            <div class="title">
+
+                <h1>Datos ingresados correctamente!</h1>
+            </div>
+
+        </section>
+
+
+        <%@include file="Footer.jsp" %>
     </body>
 </html>

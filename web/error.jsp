@@ -9,9 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
+        <title>BAROS</title>
+        <link rel="stylesheet" type="text/css" href="css/estilos.css">
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>    </head>
     <body>
+        <%@include file="Menu.jsp" %>
+
         <h1>Error</h1>
+        
+        <%@include file="Footer.jsp" %>
     </body>
 </html>

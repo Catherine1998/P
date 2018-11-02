@@ -20,8 +20,10 @@
     <body>  
         <%@include file="Menu.jsp" %>
 
-        <section class="sec1"><br><br><br><br><br><br><br><br><br><br>
-            <h1>Habitaciones</h1>
+        <section class="sec1">
+            <div class="title">
+                <h1>Habitaciones</h1>
+            </div>
             <table border="1" class="grid">
                 <thead>
                     <tr>
@@ -58,7 +60,7 @@
                             Q. <%= habitacion.getPrecio()%>
                         </td>
                         <td>
-                             <%= habitacion.getEstado()%>
+                            <%= habitacion.getEstado()%>
                         </td>
                     </tr>
                     <%

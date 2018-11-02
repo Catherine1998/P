@@ -18,24 +18,18 @@ import javax.swing.JOptionPane;
  * @author CatherineV
  */
 public class HuespedM {
+
     private String nombre;
     private String apellido;
     private String direccion;
-    conexionDB conect = new conexionDB(); 
-
 
     public HuespedM(String nombre, String apellido, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.direccion = direccion;
-     
+
     }
- 
-   
-      
-         
-    
-    
+
     /**
      * @return the nombre
      */
@@ -78,10 +72,4 @@ public class HuespedM {
         this.direccion = direccion;
     }
 
-    /**
-     * @return the telefono
-     */
-   
-    
-    
 }

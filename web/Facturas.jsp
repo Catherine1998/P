@@ -4,6 +4,9 @@
     Author     : CatherineV
 --%>
 
+<%@page import="com.Modelo.FacturarM"%>
+<%@page import="com.servlet.Factura"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,30 +15,13 @@
         <title>BAROS</title>
         <link rel="stylesheet" type="text/css" href="css/estilos.css">
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-
     </head>
-    <body background="../img/fondo.jpg">
+    <body>
         <%@include file="Menu.jsp" %>
         <section class="sec1">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <h1>Facturas Generadas</h1>
+            <div class="title">
+                <h1>Facturas Generadas</h1>
+            </div>
             <table border="1" class="grid">
                 <thead>
                     <tr>
@@ -47,20 +33,40 @@
                         <th>Total</th>
                     </tr>
                 </thead>
-                <tbody> 
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4 </td>
-                        <td>5</td>
-                        <td>6</td>
+                <tbody>
+                    <%
+                        Factura h = new Factura();
+                        ArrayList reserv = h.fill();
+                        for (int i = 0; i < reserv.size(); i++) {
+                            FacturarM factura = (FacturarM) reserv.get(i);
 
+                    %>                    
+                    <tr>
+                        <td>
+                            <%= factura.getId_Transaccion()%>
+                        </td>
+                        <td>
+                            <%= factura.getId_Transaccion()%>
+                        </td>
+                        <td>
+                            <%= factura.getHuesped()%>
+                        </td>
+                        <td>
+                            <%= factura.getFecha()%>
+                        </td>
+                        <td>
+                            <%= factura.getTipo_documento()%>
+                        </td>
+                        <td>
+                            Q. <%= factura.getTotal()%>
+                        </td>
                     </tr>
+                    <%
+                        }
+                    %>   
                 </tbody>
             </table>
         </section>
-
         <%@include file="Footer.jsp" %>
     </body>
 </html>

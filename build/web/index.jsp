@@ -18,11 +18,10 @@
         <%@include file="Menu.jsp" %>
 
         <section class="sec1"><br><br><br><br><br><br><br><br><br>
-            <center>
-                <h1>BIENVENIDOS A BAROS</h1><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div>
+                <h1>BIENVENIDOS A BAROS</h1>
                 <h2>La mejor experiencia que podras tener, no te arrepentiras.</h2>
-            </center> 
-
+            </div>
         </section>  
         
         <section class="sec2">

@@ -5,7 +5,8 @@
  */
 package com.servlet;
 
-import com.Modelo.HuespedM;
+import com.Modelo.FacturarI;
+import com.Modelo.FacturarM;
 import com.conexion.conexionDB;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +15,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,31 +25,44 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fc
  */
-public class Huespedes extends HttpServlet {
+@WebServlet(name = "Factura", urlPatterns = {"/Factura"})
+public class Factura extends HttpServlet {
 
     conexionDB conexion = new conexionDB();
     Connection con = null;
 
-    public ArrayList fillHuespedes() {
+    public ArrayList fill() {
         try {
-
             con = conexion.getConexionSqlServer();
 
-            String consulta = "SELECT * FROM HUESPED";
+            String consulta = "SELECT \n"
+                    + "T.Id_transaccion, \n"
+                    + "'' AS NIT, \n"
+                    + "H.Nombre + ' ' +  H.Apellido AS HUESPED,\n"
+                    + "T.Fecha,\n"
+                    + "TDC.Descripcion,\n"
+                    + "T.Total \n"
+                    + "FROM TRANSACCION T\n"
+                    + "INNER JOIN TRANSACCION_DETALLE TD ON T.Id_transaccion = TD.Id_transaccion\n"
+                    + "INNER JOIN TIPO_DOCUMENTO TDC ON T.Id_tipo_documento = TDC.Id_tipo_documento\n"
+                    + "INNER JOIN HUESPED H ON T.Id_huesped = H.Id_huesped";
 
             PreparedStatement pst = con.prepareStatement(consulta);
             ResultSet rs = pst.executeQuery();
 
-            ArrayList huespe = new ArrayList();
+            ArrayList reservaciones = new ArrayList();
 
             while (rs.next()) {
-                HuespedM ha1 = new HuespedM(
-                        rs.getString("Nombre"),
-                        rs.getString("Apellido"),
-                        rs.getString("Direccion"));
-                huespe.add(ha1);
+                FacturarM reserv = new FacturarM(
+                        rs.getInt("Id_transaccion"),
+                        rs.getInt("Total"),
+                        rs.getString("Descripcion"),
+                        rs.getString("HUESPED"),
+                        rs.getDate("Fecha"));
+                reservaciones.add(reserv);
             }
-            return huespe;
+            return reservaciones;
+
         } catch (SQLException ex) {
             return null;
         }
@@ -66,6 +80,7 @@ public class Huespedes extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
 
     }
 
@@ -81,13 +96,7 @@ public class Huespedes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        ArrayList lista = fillHuespedes();
-        request.setAttribute("list", lista);
-
-        RequestDispatcher rd = request.getRequestDispatcher("Huespedes.jsp");
-        rd.forward(request, response);
-
+        processRequest(request, response);
     }
 
     /**
@@ -101,10 +110,23 @@ public class Huespedes extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if ("edit".equals(request.getParameter("edit"))) {
 
-        } else if ("delete".equals(request.getParameter("delete"))) {
-            
+        //String nombre = request.getParameter("nombre");
+        //String fecha = request.getParameter("Fecha");
+//        String noches = request.getParameter("noches");
+//        String Tipo_habitacion = request.getParameter("noches");
+        if ("Guardar".equals(request.getParameter("guardar"))) {
+            //if (!nombre.equalsIgnoreCase("") && !fecha.equalsIgnoreCase("") && !noches.equalsIgnoreCase("")) {
+
+                //FacturarM factura = new FacturarM(1, 1, 1, 1, 1);
+            //boolean sw = FacturarI.agregar(factura);
+            //if (sw == true) {
+            request.getRequestDispatcher("exito.jsp").forward(request, response);
+                //} else {
+            //    PrintWriter out = response.getWriter();
+            //    out.println(" :( ");
+            //}
+            //}
         }
     }
 

@@ -18,10 +18,10 @@
     </head>
     <body>
         <%@include file="Menu.jsp" %>
-        <section class="sec1"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-            <center><h1>Servicios</h1></center>
-
+        <section class="sec1">
+            <div class="title">
+                <h1>Servicios</h1>
+            </div> 
             <table border="1" class="grid">
                 <thead>
                     <tr>
@@ -36,7 +36,6 @@
                         ArrayList serviciosList = h.fillServicios();
                         for (int i = 0; i < serviciosList.size(); i++) {
                             ServicioM servicio = (ServicioM) serviciosList.get(i);
-
                     %>
                     <tr>
                         <td>

@@ -15,39 +15,21 @@
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     </head>
     <body>
-        <%@include file="Menu.jsp" %>    <section class="sec1">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
+        <%@include file="Menu.jsp" %>    
+        <section class="sec1">
+            <div   class="title">
+                <h1>Nuevo Huesped</h1>
+            </div>
             <form action="nhuesped.do" method="post">
-                <center>
-                    <h1>Nuevo Huesped</h1>
-                    <br>
-                    <br>
-                    <br>
-                    <p>
-                        Nombre:  <input type="text" name="nombre" placeholder="Ingrese Nombre">
-                        <br>
-                        <br>
-                        Apellido: <input type="text"  name="apellido" placeholder="Ingrese el apellido">
-                        <br>
-                        <br>
-                        Direccion:<input type="text" name="direccion"  placeholder="Ingrese dirección" style=" top: 2px; ">
-                        <br>
-                        <br>
-                        <br>
-                    </p>
-                    <input type="submit" value="Guardar" name="guardar" ><input type="submit" value="Cancelar">
-                </center>
+                <p>Nombre:  <input type="text" name="nombre" placeholder="Ingrese Nombre"></p>
+
+                <p>Apellido: <input type="text"  name="apellido" placeholder="Ingrese el apellido"></p>
+
+                <p> Direccion:<input type="text" name="direccion"  placeholder="Ingrese dirección" style=" top: 2px; "></p>
+                <div class="btn">
+                    <input type="submit" value="Guardar" name="guardar" >
+                    <input type="submit" value="Cancelar">
+                </div>
             </form> 
         </section>
 

@@ -31,7 +31,6 @@ public class HuespedI {
             }
         } catch (SQLException e) {
             agregado = false;
-            e.printStackTrace();
         }
         return agregado;
 

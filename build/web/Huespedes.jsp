@@ -19,9 +19,10 @@
     </head>
     <body>  
         <%@include file="Menu.jsp" %>
-
-        <section class="sec1"><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            ><h1>Huespedes</h1><br>
+        <section class="sec1">
+            <div class="title">
+                <h1>Huespedes</h1>
+            </div>
             <table border="1" class="grid">
                 <thead>
                     <tr>
@@ -39,14 +40,15 @@
 
                     %>
                     <tr>
+                        <td><%= huesped.getNombre()%></td>
+                        <td><%= huesped.getApellido()%></td>
+                        <td><%= huesped.getDireccion()%></td>
                         <td>
-                            <%= huesped.getNombre()%>
-                        </td>
-                        <td>
-                            <%= huesped.getApellido()%>
-                        </td>
-                        <td>
-                            <%= huesped.getDireccion()%>
+                            <form action="Huespedes" method="POST">
+
+                                <input type="submit" value="edit" name="edit" >
+                                <input type="submit" value="delete" name="delete">
+                            </form>
                         </td>
                     </tr>
                     <%

@@ -4,6 +4,7 @@
     Author     : CatherineV
 --%>
 
+<%@page import="java.time.LocalDateTime"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -16,65 +17,42 @@
     <body>
         <%@include file="Menu.jsp" %>
         <section class="sec1">
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <center>
+            <div class="title">
                 <h1>Reservación</h1>
-                <p>
-                    <br>
-                    <br>
-                    <br>Nombre Cliente:
-                    <input type="text" name="">
-                    <br>
-                    <br>
-                    Fecha Reservación:
-                    <input type="date" name=""> Fecha de ingreso:
-                    <input type="date" name=""> Fecha de salida:
-                    <input type="date" name=""> Fecha pago:
-                    <input type="date" name="">
-                    <br>
-                    <br>Total a pagar:
-                    <input type="text" name="">
-                    <br>
-                    <br>
-                    Tipo de habitación:
-                    <select>
-                        <option value="">Simple</option>
-                        <option value="">Doble</option>
-                        <option value="">...</option>
-                        <option value="">...</option>
-                    </select>
-                    <br>
-                    <br>
-                    Nivel de habitación:
-                    <select>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                    </select>
-                    <br>
-                    <br>
-                    Numero de habitación:
-                    <select>
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4</option>
-                    </select>
-                    <br>
-                    <br>
-                </p>
-                <input type="submit" value="Guardar">
+            </div>
+            <p>Nombre Cliente: <input type="text" name=""></p>
+            <p>Fecha Reservación: <input type="date" name="" ></p> 
+            <p>Fecha de ingreso: <input type="date" name=""></p>
+            <p>Fecha de salida: <input type="date" name=""></p>
+            <p>Fecha pago: <input type="date" name=""></p>
+            <p>Total a pagar: <input type="text" name=""></p>
+            <p>Tipo de habitación:
+                <select>
+                    <option value="">Simple</option>
+                    <option value="">Doble</option>
+                </select>
+            </p>
+            <p>Nivel de habitación:
+                <select>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                </select>
+            </p>
+            <p>Numero de habitación:
+                <select>
+                    <option value="">1</option>
+                    <option value="">2</option>
+                    <option value="">3</option>
+                    <option value="">4</option>
+                </select>
+
+            </p>
+            <div class="btn">
+                <input type="submit" value="Guardar" name="guardar" >
                 <input type="submit" value="Cancelar">
-            </center>
+            </div>
         </section>
         <%@include file="Footer.jsp" %>
 
