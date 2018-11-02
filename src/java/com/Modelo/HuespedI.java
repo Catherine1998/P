@@ -25,7 +25,6 @@ public class HuespedI {
             Connection con = c.getConexionSqlServer();
             if (con != null) {
                 String consulta = "INSERT INTO HUESPED VALUES ('" + huesped1.getNombre() + "','" + huesped1.getApellido() + "','" + huesped1.getDireccion() + "')";
-
                 Statement st = con.createStatement();
                 st.executeUpdate(consulta);
                 agregado = true;

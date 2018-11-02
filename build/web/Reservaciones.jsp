@@ -4,6 +4,9 @@
     Author     : CatherineV
 --%>
 
+<%@page import="com.servlet.Reservaciones"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.Modelo.ReservacionM"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -45,16 +48,42 @@
                     </tr>
                 <thead>                
                 <tbody>
+                    <%
+                        Reservaciones h = new Reservaciones();
+                        ArrayList reserv = h.fillReservaciones();
+                        for (int i = 0; i < reserv.size(); i++) {
+                            ReservacionM reser = (ReservacionM) reserv.get(i);
+
+                    %>                    
                     <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4 </td>
-                        <td>5</td>
-                        <td>6</td>
-                        <td>7</td>
-                        <td>8</td>
+                        <td>
+                            <%= reser.getFecha_reservacion()%>
+                        </td>
+                        <td>
+                            <%= reser.getIngreso()%>
+                        </td>
+                        <td>
+                            <%= reser.getSalida()%>
+                        </td>
+                        <td>
+                            <%= reser.getCliente()%>
+                        </td>
+                        <td>
+                            Q. <%= reser.getTotal()%>
+                        </td>
+                        <td>
+                             <%= reser.getTipo_de_habitacion()%>
+                        </td>
+                        <td>
+                             <%= reser.getNivel()%>
+                        </td>
+                        <td>
+                             <%= reser.getNumero_habitacion()%>
+                        </td>
                     </tr>
+                    <%
+                        }
+                    %>   
                 </tbody>
             </table>
         </section>

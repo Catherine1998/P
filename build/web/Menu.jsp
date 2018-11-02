@@ -26,7 +26,7 @@
         <div class="navbar">
             <a href="#" class="channel"></a>
             <ul>
-                <li><a href="index.jsp" class="active">Inicio</a></li>
+                <li><a href="index.jsp">Inicio</a></li>
                 <li><a href="Reservar.jsp">Reserva</a></li>
                 <li><a href="Reservaciones.jsp">Reservaciones</a></li>
                 <li><a href="Servicios.jsp">Servicio</a></li>
