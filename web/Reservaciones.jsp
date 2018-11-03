@@ -34,6 +34,7 @@
                         <th>Tipo de habitacion</th>
                         <th>Nivel</th>
                         <th>Numero de habitacion</th>
+                        <th>Facturado</th>
                     </tr>
                 <thead>                
                 <tbody>
@@ -69,12 +70,19 @@
                         <td>
                             <%= reser.getNumero_habitacion()%>
                         </td>
+                        <td>
+                            <%= reser.isFacturado()%>
+                        </td>
                     </tr>
                     <%
                         }
                     %>   
                 </tbody>
             </table>
+            <div class="putDelete">
+                <H4 align="right"><a href="LinkFacturar.jsp">Facturar</a> </H4>
+                <H4 align="right"><a href="AgregarServicio.jsp">Agregar servicio</a> </H4>
+            </div>
         </section>
         <%@include file="Footer.jsp" %>
     </body>

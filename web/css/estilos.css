@@ -112,6 +112,19 @@ section
     padding: 40px;
 }
 
+.sec1 .putDelete a
+{ 
+    color: #fff;
+    text-decoration: none;
+    margin-right: 40px;
+    font-size: 18px;
+}
+
+.sec1 .putDelete a:hover
+{
+    text-decoration: underline;
+}
+
 .sec1 div h1
 {
     margin: 0;

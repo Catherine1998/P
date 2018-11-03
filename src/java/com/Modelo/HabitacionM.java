@@ -14,6 +14,13 @@ public class HabitacionM {
     public HabitacionM() {
     }
 
+    public HabitacionM(int ID, String Tipo, int Nivel, float Precio) {
+        this.ID = ID;
+        this.Tipo = Tipo;
+        this.Nivel = Nivel;
+        this.Precio = Precio;
+    }
+
     public HabitacionM(int ID, String Tipo, int Nivel, float Precio, String Comentario, Boolean Estado) {
         this.ID = ID;
         this.Tipo = Tipo;

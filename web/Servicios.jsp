@@ -4,6 +4,8 @@
     Author     : CatherineV
 --%>
 
+<%@page import="com.servlet.Servicio"%>
+<%@page import="com.Modelo.ServicioM"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,14 +21,38 @@
             <div class="title">
                 <h1>Servicio</h1>
             </div>
+            <%
+                ServicioM servicio = null;
+                if (request.getAttribute("id") != null) {
+                    Servicio hsp = new Servicio();
+                    servicio = hsp.getByID(request.getAttribute("id").toString());
+                }
+            %>
+
             <form action="Servicio" method="POST">
-                <p>Descripción: <textarea name="descripcion" rows="1" cols="50" placeholder="Ingrese los datos: "></textarea></p>
-                <p>Precio: <input type="text" name="precio"></p>
+                <%
+                    if (servicio != null) {
+                %>
+                <p hidden><input type="text" name="id" value="<%= servicio.getId()%>"></p>
+                <p>Descripción: <textarea name="descripcion" rows="1" cols="50" placeholder="Ingrese los datos: " ><%= servicio.getDescripcion()%></textarea></p>
+                <p>Precio: <input type="text" name="precio" value="<%= servicio.getPrecio()%>"></p>
                 <div class="btn">
-                    <input type="submit" value="Guardar" name="guardar" >
-                    <input type="submit" value="Cancelar">
-                </div>
-            </form>
+                    <input type="submit" value="Editar" name="editar" >
+
+                    <%                    } else {
+                    %>
+                    <p>Descripción: <textarea name="descripcion" rows="1" cols="50" placeholder="Ingrese los datos: "></textarea></p>
+                    <p>Precio: <input type="text" name="precio"></p>
+                    <div class="btn">
+                        <input type="submit" value="Guardar" name="guardar" >
+                        <%
+                            }
+                        %>
+
+                        <input type="submit" value="Cancelar" name="cancelar">
+                    </div>    
+
+            </form> 
         </section>
 
         <%@include file="Footer.jsp" %>

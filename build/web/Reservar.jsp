@@ -61,18 +61,16 @@
                                 HabitacionM habitacion = (HabitacionM) habitaciones.get(i);
                         %>
                        <!--- <option value="<%= habitacion.getID() + "," + habitacion.getPrecio()%>" >Nivel <%= habitacion.getNivel() + " / NO." + habitacion.getNivel()%></option>-->
-                        <option value="<%= habitacion.getID()%>" >Nivel <%= habitacion.getNivel() + " / NO." + habitacion.getNivel()%></option>
+                        <option value="<%= habitacion.getID() + "/" + habitacion.getPrecio()%>" >Nivel <%= habitacion.getNivel() + " / NO." + habitacion.getNivel()%></option>
                         <%
                             }
                         %> 
                     </select>
 
                 </p>
-                <p>Pago: <input type="checkbox" name="pago" value="Bike"></p>
-                <p>Total a pagar: </p>
                 <div class="btn">
                     <input type="submit" value="Guardar" name="guardar" >
-                    <input type="submit" value="Cancelar">
+                    <input type="submit" value="Cancelar" name="cancelar">
                 </div>
             </form>
         </section>

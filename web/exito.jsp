@@ -18,7 +18,7 @@
         <section class="sec1">
             <div class="title">
 
-                <h1>Datos ingresados correctamente!</h1>
+                <h1>Dato <%= request.getAttribute("tipo") %> correctamente!</h1>
             </div>
 
         </section>

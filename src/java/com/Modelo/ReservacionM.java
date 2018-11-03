@@ -22,6 +22,7 @@ public class ReservacionM {
     private String tipo_de_habitacion;
     private int Nivel;
     private int numero_habitacion;
+    private boolean facturado = false;
 
     public ReservacionM(Date fecha_reservacion, Date ingreso, Date salida, String cliente, float total, String tipo_de_habitacion, int Nivel, int numero_habitacion) {
         this.fecha_reservacion = fecha_reservacion;
@@ -34,7 +35,7 @@ public class ReservacionM {
         this.numero_habitacion = numero_habitacion;
     }
 
-    public ReservacionM(int id, Date fecha_reservacion, Date ingreso, Date salida, String cliente, float total, String tipo_de_habitacion, int Nivel, int numero_habitacion) {
+    public ReservacionM(int id, Date fecha_reservacion, Date ingreso, Date salida, String cliente, float total, String tipo_de_habitacion, int Nivel, int numero_habitacion, boolean facturado) {
         this.id = id;
         this.fecha_reservacion = fecha_reservacion;
         this.ingreso = ingreso;
@@ -44,6 +45,19 @@ public class ReservacionM {
         this.tipo_de_habitacion = tipo_de_habitacion;
         this.Nivel = Nivel;
         this.numero_habitacion = numero_habitacion;
+        this.facturado = facturado;
+    }
+
+    public String isFacturado() {
+        if (facturado) {
+            return "Si";
+        } else {
+            return "No";
+        }
+    }
+
+    public void setFacturado(boolean facturado) {
+        this.facturado = facturado;
     }
 
     public int getId() {

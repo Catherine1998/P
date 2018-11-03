@@ -23,6 +23,7 @@
             <div class="title">
                 <h1>Huespedes</h1>
             </div>
+
             <table border="1" class="grid">
                 <thead>
                     <tr>
@@ -39,16 +40,10 @@
                             HuespedM huesped = (HuespedM) huespedes.get(i);
 
                     %>
-                    <tr id="<%= huesped.getId()%>">
+                    <tr>
                         <td name="nombre"><%= huesped.getNombre()%></td>
                         <td><%= huesped.getApellido()%></td>
                         <td><%= huesped.getDireccion()%></td>
-                        <td>
-                            <form action="Huespedes" method="POST">
-                                <input type="submit" value="edit" name="edit" >
-                                <input type="submit" value="delete" name="delete">
-                            </form>
-                        </td>
                     </tr>
                     <%
                         }
@@ -56,9 +51,12 @@
 
                 </tbody>
             </table>
-        </section>
 
-        <H4 align="right"><a href="NHuesped.jsp">Ingresar nuevo Huesped</a> </H4>
+            <div class="putDelete">
+                <H4 align="right"><a href="EHuesped.jsp">Editar Huesped</a></H4>
+                <H4 align="right"><a href="DHuesped.jsp">Eliminar Huesped</a></H4>
+            </div>
+        </section>
 
         <%@include file="Footer.jsp" %>
 

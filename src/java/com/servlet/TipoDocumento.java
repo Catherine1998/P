@@ -5,17 +5,17 @@
  */
 package com.servlet;
 
-import com.Modelo.HuespedM;
+import com.Modelo.TipoDocumentoM;
 import com.conexion.conexionDB;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Enumeration;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,55 +24,33 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author fc
  */
-public class Huespedes extends HttpServlet {
+@WebServlet(name = "TipoDocumento", urlPatterns = {"/TipoDocumento"})
+public class TipoDocumento extends HttpServlet {
 
     conexionDB conexion = new conexionDB();
     Connection con = null;
 
-    public HuespedM getHuesped(String id) {
-        try {
+    public ArrayList getTiposDeDocumentos() {
 
+        try {
             con = conexion.getConexionSqlServer();
 
-            String consulta = "SELECT * FROM HUESPED WHERE Id_huesped = " + id;
-
-            PreparedStatement pst = con.prepareStatement(consulta);
-            ResultSet rs = pst.executeQuery();
-            HuespedM hueped = null;
-            while (rs.next()) {
-                hueped = new HuespedM(
-                        rs.getInt("Id_huesped"),
-                        rs.getString("Nombre"),
-                        rs.getString("Apellido"),
-                        rs.getString("Direccion"));
-            }
-            return hueped;
-        } catch (SQLException ex) {
-            return null;
-        }
-    }
-
-    public ArrayList fillHuespedes() {
-        try {
-
-            con = conexion.getConexionSqlServer();
-
-            String consulta = "SELECT * FROM HUESPED";
+            String consulta = "select * from TIPO_DOCUMENTO";
 
             PreparedStatement pst = con.prepareStatement(consulta);
             ResultSet rs = pst.executeQuery();
 
-            ArrayList huespe = new ArrayList();
+            ArrayList reservaciones = new ArrayList();
 
             while (rs.next()) {
-                HuespedM ha1 = new HuespedM(
-                        rs.getInt("Id_huesped"),
-                        rs.getString("Nombre"),
-                        rs.getString("Apellido"),
-                        rs.getString("Direccion"));
-                huespe.add(ha1);
+                TipoDocumentoM reserv = new TipoDocumentoM(
+                        rs.getInt("Id_tipo_documento"),
+                        rs.getString("Descripcion"),
+                        rs.getString("Factor"));
+                reservaciones.add(reserv);
             }
-            return huespe;
+            return reservaciones;
+
         } catch (SQLException ex) {
             return null;
         }
@@ -89,7 +67,6 @@ public class Huespedes extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
 
     }
 
@@ -105,6 +82,7 @@ public class Huespedes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        processRequest(request, response);
     }
 
     /**
@@ -118,7 +96,7 @@ public class Huespedes extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+        processRequest(request, response);
     }
 
     /**

@@ -31,12 +31,60 @@ public class Servicio extends HttpServlet {
     conexionDB conexion = new conexionDB();
     Connection con = null;
 
+    public ServicioM getByID(String id) {
+        try {
+
+            con = conexion.getConexionSqlServer();
+
+            String consulta = "SELECT * FROM SERVICIO WHERE Id_servicio = " + id;
+
+            PreparedStatement pst = con.prepareStatement(consulta);
+            ResultSet rs = pst.executeQuery();
+            ServicioM ser = null;
+            while (rs.next()) {
+                ser = new ServicioM(rs.getInt("Id_servicio"),
+                        rs.getString("Descripcion"),
+                        rs.getFloat("Precio"));
+            }
+            return ser;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+
     public ArrayList fillServicios() {
         try {
 
             con = conexion.getConexionSqlServer();
 
             String consulta = "SELECT * FROM SERVICIO";
+
+            PreparedStatement pst = con.prepareStatement(consulta);
+            ResultSet rs = pst.executeQuery();
+
+            ArrayList serviciosList = new ArrayList();
+
+            while (rs.next()) {
+                ServicioM serv = new ServicioM(rs.getInt("Id_servicio"),
+                        rs.getString("Descripcion"),
+                        rs.getFloat("Precio"));
+                serviciosList.add(serv);
+            }
+            return serviciosList;
+        } catch (SQLException ex) {
+            return null;
+        }
+    }
+
+    public ArrayList getServiciosPorReservacion(int id) {
+        try {
+
+            con = conexion.getConexionSqlServer();
+
+            String consulta = "SELECT SV.*\n"
+                    + "FROM SERVICIO SV\n"
+                    + "INNER JOIN TRANSACCION_DETALLE TRXD ON SV.Id_servicio = TRXD.Id_servicio\n"
+                    + "WHERE TRXD.Id_transaccion = " + id;
 
             PreparedStatement pst = con.prepareStatement(consulta);
             ResultSet rs = pst.executeQuery();
@@ -96,9 +144,26 @@ public class Servicio extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        if ("Guardar".equals(request.getParameter("guardar"))) {
-            String nombre = request.getParameter("descripcion");
-            String precioString = request.getParameter("precio");
+        if (request.getParameter("cancelar") != null && "cancelar".equals(request.getParameter("cancelar").toLowerCase())) {
+            request.getRequestDispatcher("index.jsp").forward(request, response);
+        }
+
+        if (request.getParameter("guardar") != null && "guardar".equals(request.getParameter("guardar").toLowerCase())) {
+            agregar(request, response);
+        } else if (request.getParameter("editarSeleccion") != null && "editar".equals(request.getParameter("editarSeleccion").toLowerCase())) {
+            editPage(request, response);
+        } else if (request.getParameter("editar") != null && "editar".equals(request.getParameter("editar").toLowerCase())) {
+            edit(request, response);
+        } else if (request.getParameter("eliminar") != null && "eliminar".equals(request.getParameter("eliminar").toLowerCase())) {
+            delete(request, response);
+        }
+    }
+
+    private void agregar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String nombre = request.getParameter("descripcion");
+        String precioString = request.getParameter("precio");
+        try {
+
             float precio = Float.parseFloat(precioString);
             if (!nombre.equalsIgnoreCase("") && !precioString.equalsIgnoreCase("")) {
 
@@ -106,12 +171,85 @@ public class Servicio extends HttpServlet {
                 boolean sw = ServicioI.agregarServicio(servicio);
 
                 if (sw == true) {
+                    request.setAttribute("tipo", "agrego");
                     request.getRequestDispatcher("exito.jsp").forward(request, response);
                 } else {
-                    PrintWriter out = response.getWriter();
-                    out.println(" :( ");
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
                 }
             }
+        } catch (NumberFormatException ex) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (ServletException ex) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (IOException ex) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+    }
+
+    private void edit(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("id");
+        String nombre = request.getParameter("descripcion");
+        String precioString = request.getParameter("precio");
+        try {
+            int idInt = Integer.parseInt(id);
+            float precio = Float.parseFloat(precioString);
+            if (!nombre.equalsIgnoreCase("") && !precioString.equalsIgnoreCase("")) {
+
+                ServicioM servicio = new ServicioM(idInt, nombre, precio);
+                boolean sw = ServicioI.editar(servicio);
+
+                if (sw == true) {
+                    request.setAttribute("tipo", "editado");
+                    request.getRequestDispatcher("exito.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("error.jsp").forward(request, response);
+                }
+            }
+        } catch (NumberFormatException ex) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (ServletException ex) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (IOException ex) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+    }
+
+    private void editPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String cliente = request.getParameter("servicio");
+
+        try {
+            request.setAttribute("id", cliente);
+
+            request.getRequestDispatcher("Servicios.jsp").forward(request, response);
+
+        } catch (NumberFormatException ex1) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (ServletException ex1) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (IOException ex1) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        }
+    }
+
+    private void delete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String cliente = request.getParameter("servicio");
+
+        try {
+            int clienteID = Integer.parseInt(cliente);
+            boolean sw = ServicioI.eliminar(clienteID);
+
+            request.setAttribute("tipo", "eliminado");
+            if (sw == true) {
+                request.getRequestDispatcher("exito.jsp").forward(request, response);
+            } else {
+                request.getRequestDispatcher("error.jsp").forward(request, response);
+            }
+        } catch (NumberFormatException ex1) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (ServletException ex1) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
+        } catch (IOException ex1) {
+            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
 

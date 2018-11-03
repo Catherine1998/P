@@ -15,7 +15,6 @@
         <li><a href="Servicio.jsp">Servicios</a></li>
         <li><a href="NHuesped.jsp">Huesped</a></li>
         <li><a href="Huespedes.jsp">Huespedes</a></li>
-        <li><a href="Facturar.jsp">Facturar</a></li>
         <li><a href="Facturas.jsp">Facturas</a></li>
         <li><a href="Habitaciones.jsp">Habitaciones</a></li>
     </ul>

@@ -35,6 +35,42 @@ public class ServicioI {
             e.printStackTrace();
         }
         return agregado;
+    }
 
+    public static boolean eliminar(int id) {
+        boolean eliminado = false;
+        try {
+            conexionDB c = new conexionDB();
+            Connection con = c.getConexionSqlServer();
+            if (con != null) {
+                String consulta = "DELETE SERVICIO WHERE ID_SERVICIO = " + id;
+                Statement st = con.createStatement();
+                st.executeUpdate(consulta);
+                eliminado = true;
+            }
+        } catch (SQLException e) {
+            eliminado = false;
+        }
+        return eliminado;
+    }
+
+    public static boolean editar(ServicioM huesped) {
+        boolean editar = false;
+        try {
+            conexionDB c = new conexionDB();
+            Connection con = c.getConexionSqlServer();
+            if (con != null) {
+                String consulta = "UPDATE [dbo].[SERVICIO]\n"
+                        + "   SET [Descripcion] = '" + huesped.getDescripcion() + "'\n"
+                        + "      ,[Precio] = '" + huesped.getPrecio() + "'\n"
+                        + " WHERE Id_servicio = " + huesped.getId();
+                Statement st = con.createStatement();
+                st.executeUpdate(consulta);
+                editar = true;
+            }
+        } catch (SQLException e) {
+            editar = false;
+        }
+        return editar;
     }
 }

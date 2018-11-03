@@ -38,6 +38,9 @@ public class HuespedM {
 
     }
 
+    public HuespedM() {
+    }
+
     public int getId() {
         return id;
     }

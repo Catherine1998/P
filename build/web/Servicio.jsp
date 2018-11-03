@@ -27,7 +27,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Descripcion</th>
-                        <th>Precio  ${list}</th> 
+                        <th>Precio</th> 
                     </tr>
                 </thead>
                 <tbody>
@@ -55,6 +55,11 @@
                 </tbody>
 
             </table>
+
+            <div class="putDelete">
+                <H4 align="right"><a href="EServicio.jsp">Editar Servicio</a> </H4>
+                <H4 align="right"><a href="DServicio.jsp">Eliminar Servicio</a> </H4>
+            </div>
         </section>
 
         <%@include file="Footer.jsp" %>

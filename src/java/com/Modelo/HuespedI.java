@@ -8,9 +8,7 @@ package com.Modelo;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
-import com.Modelo.HuespedM;
 import com.conexion.conexionDB;
-import java.sql.PreparedStatement;
 
 /**
  *
@@ -34,5 +32,39 @@ public class HuespedI {
         }
         return agregado;
 
+    }
+
+    public static boolean eliminarhuesped(int IDHuesped) {
+        boolean eliminado = false;
+        try {
+            conexionDB c = new conexionDB();
+            Connection con = c.getConexionSqlServer();
+            if (con != null) {
+                String consulta = "delete HUESPED where Id_huesped = " + IDHuesped;
+                Statement st = con.createStatement();
+                st.executeUpdate(consulta);
+                eliminado = true;
+            }
+        } catch (SQLException e) {
+            eliminado = false;
+        }
+        return eliminado;
+    }
+
+    public static boolean editarhuesped(HuespedM huesped) {
+        boolean editar = false;
+        try {
+            conexionDB c = new conexionDB();
+            Connection con = c.getConexionSqlServer();
+            if (con != null) {
+                String consulta = "UPDATE HUESPED SET Apellido = '" + huesped.getApellido() + "', Direccion = '" + huesped.getDireccion() + "', Nombre = '" + huesped.getNombre() + "' WHERE Id_huesped = " + huesped.getId();
+                Statement st = con.createStatement();
+                st.executeUpdate(consulta);
+                editar = true;
+            }
+        } catch (SQLException e) {
+            editar = false;
+        }
+        return editar;
     }
 }

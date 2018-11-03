@@ -66,6 +66,9 @@
                     %>   
                 </tbody>
             </table>
+            <div class="putDelete">
+                <H4 align="right"><a href="DetallesFacturas.jsp">Detalles de facturas</a></H4>
+            </div>
         </section>
         <%@include file="Footer.jsp" %>
     </body>

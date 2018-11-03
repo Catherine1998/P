@@ -14,9 +14,13 @@
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>    </head>
     <body>
         <%@include file="Menu.jsp" %>
+        <section class="sec1">
+            <div class="title">
 
-        <h1>Error</h1>
-        
+                <h1>Error</h1>
+            </div>
+        </section>
+
         <%@include file="Footer.jsp" %>
     </body>
 </html>

@@ -19,12 +19,19 @@ public class RegistroM {
     private String fhpago;
     private float total;
 
-    public RegistroM(int idhuesped, String fhreserva, String fhinresgistro, 
-                        String fhfiregistro, String fhpago, float pago) {
+    public RegistroM(String fhreserva, String fhinregistro, String fhfiregistro) {
+        this.fhreserva = fhreserva;
+        this.fhinregistro = fhinregistro;
+        this.fhfiregistro = fhfiregistro;
+    }
+
+    public RegistroM(int idhuesped, String fhreserva, String fhinresgistro,
+            String fhfiregistro, String fhpago, float pago) {
         this.Idhuesped = idhuesped;
         this.fhreserva = fhreserva;
         this.fhinregistro = fhinresgistro;
         this.fhfiregistro = fhfiregistro;
+        this.total = pago;
     }
 
     public RegistroM(int idregistro, int idhuesped, String fhreserva, String fhinresgistro, String fhfiregistro, String fhpago, float pago) {

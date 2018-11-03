@@ -15,6 +15,12 @@ public class AsignacionM {
     private int Idregistro;
     private int Idhabitacion;
     private int Idhuesped;
+    private String huesped;
+    private HabitacionM habitacion;
+
+    public AsignacionM(String huesped) {
+        this.huesped = huesped;
+    }
 
     public AsignacionM(int Idhabitacion, int Idhuesped) {
         this.Idhabitacion = Idhabitacion;
@@ -26,6 +32,22 @@ public class AsignacionM {
         this.Idregistro = Idregistro;
         this.Idhabitacion = Idhabitacion;
         this.Idhuesped = Idhuesped;
+    }
+
+    public String getHuesped() {
+        return huesped;
+    }
+
+    public void setHuesped(String huesped) {
+        this.huesped = huesped;
+    }
+
+    public HabitacionM getHabitacion() {
+        return habitacion;
+    }
+
+    public void setHabitacion(HabitacionM habitacion) {
+        this.habitacion = habitacion;
     }
 
     /**
